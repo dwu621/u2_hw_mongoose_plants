@@ -10,6 +10,8 @@ router.get('/plants', controllers.getAllPlants)
 
 router.get('/plants/:id', controllers.getPlantById)
 
+router.put('/plants/:id', controllers.updatePlant)
+
 module.exports = router;
 
 
