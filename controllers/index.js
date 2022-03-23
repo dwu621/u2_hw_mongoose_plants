@@ -1,3 +1,4 @@
+const { send } = require('express/lib/response')
 const Plant = require('../models/plant')
 
 const createPlant = async (req, res) => {
@@ -21,7 +22,22 @@ const getAllPlants = async (req, res) => {
     }
 }
 
+const getPlantById = async (req, res) => {
+    try{
+        const { id } = req.params
+        const plant = await Plant.findById(id)
+        if (plant) {
+            return res.status(200).json({ plant })
+        }
+        return res.status(400).send('Plant with the specified id does not exist!')    
+    } catch (err) {
+        return res.status(500).send(err.message)
+    }
+}
+
 module.exports = {
     createPlant,
-    getAllPlants
+    getAllPlants,
+    getPlantById
+
 }
