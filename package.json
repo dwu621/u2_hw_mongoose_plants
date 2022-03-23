@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/dwu621/u2_hw_mongoose_plants#readme",
   "dependencies": {
+    "body-parser": "^1.19.2",
     "express": "^4.17.3",
     "mongoose": "^6.2.8"
   },

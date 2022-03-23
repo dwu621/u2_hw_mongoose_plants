@@ -7,7 +7,7 @@ const Plant = new Schema(
         description: { type: String, required: true },
         image: { type: String, required: true },
     },
-    { timestamps: true },
+    { timestamps: true }
 )
 
 module.exports = mongoose.model('plants', Plant)

@@ -1,12 +1,15 @@
-const express = require('express');
-const routes = require('./routes');
-const db = require('./db');
+const express = require('express')
+const routes = require('./routes')
+const db = require('./db')
+const bodyParser = require('body-parser')
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 
-const app = express();
+const app = express()
 
-app.use('/api', routes);
+app.use(bodyParser.json())
+
+app.use('/api', routes)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
